@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Diabetes Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST">
+    	        <input class="form-input" type="number" name="pregnancies" placeholder="Number of Pregnancies eg. 0"><br>
+                <input class="form-input" type="number" name="glucose" placeholder="Glucose (mg/dL) eg. 80"><br>
+                <input class="form-input" type="number" name="loodpressure" placeholder="Blood Pressure (mmHg) eg. 80"><br>
+                <input class="form-input" type="number" name="skinthickness" placeholder="Skin Thickness (mm) eg. 20"><br>
+                <input class="form-input" type="number" step="any" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction"><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <br>
+     <br>
+   {{ pred }}
+
+ </div>
+
+
+</body>
+</html>
